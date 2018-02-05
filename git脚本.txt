@@ -3,3 +3,17 @@ https://github.com/diyewu/wxxcx.git
 930725713@qq.com
 
 ssh-keygen -t rsa -C 930725713@qq.com
+
+
+cd //需要提交的目录
+
+git init 表示在当前的项目目录中生成本地的git管理。
+
+git add . 表示你要提交到github上的文件，如果你要将所有文件都添加上去的话，使用git add . “.”表示添加当前目录中的所有文件。
+
+git commit -m “first commit”,表示你对这次提交的注释。
+git commit  vim 填写描述
+
+git remote add origin https://github.com/diyewu/wxxcx.git
+
+git pull origin master:master
