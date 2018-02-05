@@ -3,7 +3,8 @@
     "pages/productList/productList",
     "pages/search/search",
     "page/one/index",
-    "page/geomap/regeocoding"
+    "page/geomap/regeocoding",
+    "pages/cat/cat"
   ],
   "window": {
     "navigationBarTextStyle": "#fff",
@@ -37,6 +38,10 @@
       {
         "pagePath": "page/geomap/regeocoding",
         "text": "map"
+      },
+      {
+        "pagePath": "pages/cat/cat",
+        "text": "cat"
       }
     ]
   },

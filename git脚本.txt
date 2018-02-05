@@ -17,3 +17,8 @@ git commit  vim 填写描述
 git remote add origin https://github.com/diyewu/wxxcx.git
 
 git pull origin master:master
+
+---------
+提交新文件
+git add text.txt
+git push -u origin master
