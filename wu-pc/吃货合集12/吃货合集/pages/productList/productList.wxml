@@ -1,0 +1,46 @@
+<view class="product-list">
+  
+  <!--条件选择-->
+  <view class="choice-bar">
+    <view bindtap="choiceItem" data-item="1" class="chioce-item chioce-item-first" hover-class="click-once-opaque">{{activeDistrictName}}
+      <image class="icon-chioce" src="{{districtChioceIcon}}"></image>
+    </view>
+    <view bindtap="choiceItem" data-item="2" class="chioce-item" hover-class="click-once-opaque">{{activeSortingName}}
+      <image class="icon-chioce" src="{{sortingChioceIcon}}"></image>
+    </view>
+    <view bindtap="choiceItem" data-item="3" class="chioce-item chioce-item-last" hover-class="click-once-opaque">筛选
+      <image class="icon-chioce" src="/images/icon-chioce.png"></image>
+    </view>
+    <view class="district-list{{!chioceDistrict?' chioce-list-hide':' chioce-list-show'}}">
+      <view class="district-left">
+        <view wx:for="{{districtList}}" catchtap="selectDistrictParent" data-index="{{index}}" class="district-parent{{index==activeDistrictParentIndex||index==0&&activeDistrictParentIndex==-1?' district-parent-active':''}}" hover-class="click-once">{{item.district_name}}</view>
+      </view>
+      <view class="district-right">
+        <scroll-view scroll-y class="scroll-district" scroll-top="{{scrollTop}}" scroll-into-view="{{scrollIntoView}}">
+          <view id="{{index}}" wx:for="{{districtList[activeDistrictParentIndex==-1?0:activeDistrictParentIndex].district_children_list}}" catchtap="selectDistrictChildren" data-index="{{index}}" class="district-children" hover-class="click-once">{{item.district_name}}</view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="sorting-list{{!chioceSorting?' chioce-list-hide':' chioce-list-show'}}">
+      <view wx:for="{{sortingList}}" catchtap="selectSorting" data-index="{{index}}" class="sorting-item" hover-class="click-once">{{item.value}}</view>
+    </view>
+    <view class="filter-list{{!chioceFilter?' chioce-list-hide':' chioce-list-show'}}">
+      <view wx:for="{{filterList}}" catchtap="selectFilter" data-index="{{index}}" class="filter-item" hover-class="click-once">{{item.value}}
+        <image hidden="{{!item.selected}}" class="icon-selected" src="/images/icon-selected.png"></image>
+      </view>
+      <view class="filter-footer">
+        <button catchtap="resetFilter" plain="true" class="button-reset" type="default" size="mini" hover-class="click-once">重置</button>
+        <button catchtap="filterButtonClick" class="button-submit" type="primary" size="mini">确定</button>
+      </view>
+    </view>
+  </view>
+  <view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chioceSorting&&!chioceFilter}}">
+  </view>
+
+    <view class="map_container">
+    <map class="map" id="map" longitude="121.26621" 
+    latitude="31.37482" scale="{{scale}}" show-location="true" markers="{{markers}}"              bindmarkertap="makertap">
+    </map>
+  </view>
+
+</view>

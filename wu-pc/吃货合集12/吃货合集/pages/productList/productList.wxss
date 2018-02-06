@@ -1,0 +1,195 @@
+.product-list {
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  padding-top: 80rpx;
+  box-sizing: border-box;
+}
+
+/*条件选择*/
+
+.choice-bar {
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 100vw;
+  font-size: 16px;
+  background-color: #fff;
+  z-index: 9;
+}
+
+.chioce-item {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  width: 33.33%;
+  height: 80rpx;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  border-left: 1rpx solid #ddd;
+  /*border-right: 1rpx solid #ddd;*/
+}
+
+.chioce-item-last {
+  border-right: none;
+}
+
+.chioce-item-first {
+  border-left: none;
+}
+
+.icon-chioce {
+  height: 30rpx;
+  width: 30rpx;
+}
+.mask{
+  position: fixed;
+  top:0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.5;
+}
+.district-list,.sorting-list,.filter-list {
+  margin-top: 2rpx;
+  position: absolute;
+  top: 80rpx;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: -1;
+  font-size: 14px;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.chioce-list-show {
+  top: 80rpx;
+  animation: slide 500ms;
+}
+
+@keyframes slide {
+  0% {
+    top: -500rpx;
+  }
+
+  100% {
+    top: 80rpx;
+  }
+}
+
+.chioce-list-hide {
+  display: none !important;
+}
+
+/*区域位置*/
+
+.district-list {
+  display: flex;
+}
+
+.district-left {
+  flex-grow: 1;
+}
+
+.district-right {
+  flex-grow: 4;
+}
+.scroll-district{
+  height: 500rpx;
+}
+.district-parent {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+  border-right: 1rpx solid #ddd;
+  background-color: #f0f0f0;
+}
+
+.district-parent-active {
+  background-color: #fff;
+}
+
+.district-children {
+  height: 100rpx;
+  line-height: 100rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+/*综合排序*/
+
+.sorting-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+/*筛选*/
+
+.filter-item {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding: 0 40rpx;
+  border-bottom: 1rpx solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-selected {
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.filter-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-footer button {
+  margin: 20rpx 80rpx;
+  border-radius: 0 !important;
+}
+
+.button-reset {
+  border: 1rpx solid #ddd !important;
+  color: #666 !important;
+}
+
+.map_container{
+    height: 1500rpx;
+    width: 100%;
+    z-index: 0
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+}
+
+.rgc_info {
+    padding: 0 5px;
+}
+
+.serach {
+  margin-top: 18rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  padding-left: 25rpx;
+  background-color: #f3f3f3;
+  border-radius: 12rpx;
+}
+.serach_view_show {
+  display: block;
+  color: #808080;
+  padding-left: 285rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  font-size: 18rpx;
+  background-color: #f3f3f3;
+  border-radius: 12rpx;
+}
