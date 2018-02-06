@@ -1,7 +1,5 @@
-<!--index.wxml-->
 
 <import src="/wxSearch/wxSearch.wxml"/>
-<!-- <import src="/record/record.wxml"/>  -->
 <view class="wxSearch-section">
   <view class="wxSearch-pancel">
     <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" style="" placeholder="搜索" />

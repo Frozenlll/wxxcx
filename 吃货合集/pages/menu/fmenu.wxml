@@ -1,0 +1,12 @@
+<view class="flex-row">
+  <checkbox-group bindchange="listenCheckboxChange">
+    <view wx:for="{{ gmenu }}" wx:for-index="idx" wx:key="name">
+      <view class="mmc wx-panel">
+        <checkbox class="menucontent" value="{{item.id}}" data-idx="{{idx}}">{{ item.menuName }}</checkbox>
+        <view bindtap='navSecond' data-idx="{{idx}}" class="wx-panel">
+          <image class="icon-right" src="/images/right.png"></image>
+        </view>
+      </view>
+    </view>
+  </checkbox-group>
+</view>

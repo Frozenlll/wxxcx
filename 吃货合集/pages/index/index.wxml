@@ -1,16 +1,14 @@
-<!--index.wxml-->
-<view class = 'container'>
-<view id='id-main-page' class='main-page' animation='{{animationData}}' style='left:{{mainPageLeft}}rpx;'
- bindtouchstart='onMainPageTouchstart' catchtouchmove='onMainPageTouchmove' bindtouchend='onMainPageTouchend' bindtap='onMainPageTap'>
-  <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class="container">
+
+  <view class="img-box">
+    <image class="bg" src="images/bg.png"></image>
+    <image class="avatar" src="../../assets/images/default-avatar@2x.png"></image>
   </view>
-</view>
-<view class='drawer-menu' animation='{{animationData}}' style='left:{{drawerMenuLeft}}rpx;'>
-  <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName2}}</text>
+
+  <view>
+    <navigator wx:for="{{ list }}" wx:key="name" url="{{ item.path }}">
+      <view class="wx-panel">{{ item.name }}</view>
+    </navigator>
   </view>
-</view>
+
 </view>

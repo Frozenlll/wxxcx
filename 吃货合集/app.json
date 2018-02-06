@@ -1,10 +1,14 @@
 {
   "pages": [
-    "pages/productList/productList",
     "pages/search/search",
-    "page/one/index",
-    "page/geomap/regeocoding",
-    "pages/cat/cat"
+    "pages/covermap/covermap",
+    "pages/cat/cat",
+    "pages/index/index",
+    "pages/dialog/index",
+    "pages/picker/index",
+    "pages/menu/fmenu",
+    "pages/menu/smenu",
+    "pages/menu/tmenu"
   ],
   "window": {
     "navigationBarTextStyle": "#fff",
@@ -24,24 +28,20 @@
     "backgroundColor": "#fbfbfd",
     "position": "bottom",
     "list": [{
-        "pagePath": "pages/productList/productList",
-        "text": "pro"
+        "pagePath": "pages/covermap/covermap",
+        "text": "covermap"
       },
       {
         "pagePath": "pages/search/search",
         "text": "search"
       },
       {
-        "pagePath": "page/one/index",
+        "pagePath": "pages/menu/fmenu",
         "text": "menu"
       },
       {
-        "pagePath": "page/geomap/regeocoding",
-        "text": "map"
-      },
-      {
-        "pagePath": "pages/cat/cat",
-        "text": "cat"
+        "pagePath": "pages/index/index",
+        "text": "demo"
       }
     ]
   },

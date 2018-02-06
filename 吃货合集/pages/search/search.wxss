@@ -1,5 +1,4 @@
 @import "/wxSearch/wxSearch.wxss";
-/* @import "/record/record.wxss"; */
 .searchtitleBox{
 	background-image:url('/images/icon-location.png');
 	background-repeat:no-repeat;
