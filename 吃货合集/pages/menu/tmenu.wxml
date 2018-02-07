@@ -1,13 +1,8 @@
-  <!-- <view>
-    <view wx:for="{{ tmenu }}" wx:for-index="idx" wx:key="name" >
-      <view class="wx-panel">{{ item.menuName }}</view>
-    </view>
-  </view> -->
 <view class="flex-row">
   <checkbox-group bindchange="listenCheckboxChange">
-    <view wx:for="{{ tmenu }}" wx:for-index="idx" wx:key="name">
+    <view wx:for="{{ globalStatusMenuData[firstIndex].children[secondIndex].children }}" wx:for-index="idx" wx:key="name">
       <view class="mmc wx-panel">
-        <checkbox class="menucontent" value="{{item.id}}" data-idx="{{idx}}">{{ item.menuName }}</checkbox>
+        <checkbox class="menucontent" value="{{idx}}" checked='{{item.status}}' data-idx="{{idx}}">{{ item.menuName }}</checkbox>
          <view  data-idx="{{idx}}" class="wx-panel">
            <image class="icon-right" ></image> 
         </view> 

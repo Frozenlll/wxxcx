@@ -1,48 +1,11 @@
 <map id="map" class="map_container" longitude="{{point.longitude}}" latitude="{{point.latitude}}" markers="{{markers}}" scale="{{mapScale}}" show-location bindregionchange="regionchange" bindmarkertap="markertap" controls="{{controls}}" bindcontroltap="controltap" >
    <cover-view class="place_info">
-    <cover-view class="place_info_parking">cover-view</cover-view>
-    <cover-view class="place_info_surplus">可覆盖在原生组件的组件</cover-view>
-    <cover-view class="place_info_order">66666</cover-view>
+   <cover-view class="selectbtn" bindtap='navMenu'>
+    <cover-view class="miniselect">筛选</cover-view>
+   </cover-view>
+   <cover-view class="search_arr" bindtap='navSearch'>  
+      <cover-view class="input">{{searchtext}}</cover-view>
+    </cover-view>  
   </cover-view> 
-
-  <!-- <cover-view class="product-list">
-    <cover-view class="choice-bar">
-      <cover-view bindtap="choiceItem" data-item="1" class="` chioce-item-first" hover-class="click-once-opaque">{{activeDistrictName}}
-        <cover-image class="icon-chioce" src="{{districtChioceIcon}}"></cover-image>
-      </cover-view>
-      <cover-view bindtap="choiceItem" data-item="2" class="chioce-item" hover-class="click-once-opaque">{{activeSortingName}}
-        <cover-image class="icon-chioce" src="{{sortingChioceIcon}}"></cover-image>
-      </cover-view>
-      <cover-view bindtap="choiceItem" data-item="3" class="chioce-item chioce-item-last" hover-class="click-once-opaque">筛选
-        <cover-image class="icon-chioce" src="/images/icon-chioce.png"></cover-image>
-      </cover-view>
-      <cover-view class="district-list{{!chioceDistrict?' chioce-list-hide':' chioce-list-show'}}">
-        <cover-view class="district-left">
-          <cover-view wx:for="{{districtList}}" catchtap="selectDistrictParent" data-index="{{index}}" class="district-parent{{index==activeDistrictParentIndex||index==0&&activeDistrictParentIndex==-1?' district-parent-active':''}}" hover-class="click-once">{{item.district_name}}</cover-view>
-        </cover-view>
-        <cover-view class="district-right">
-          <cover-view scroll-y class="scroll-district" scroll-top="{{scrollTop}}" scroll-into-view="{{scrollIntoView}}">
-            <cover-view id="{{index}}" wx:for="{{districtList[activeDistrictParentIndex==-1?0:activeDistrictParentIndex].district_children_list}}" catchtap="selectDistrictChildren" data-index="{{index}}" class="district-children" hover-class="click-once">{{item.district_name}}</cover-view>
-          </cover-view>
-        </cover-view>
-      </cover-view>
-      <cover-view class="sorting-list{{!chioceSorting?' chioce-list-hide':' chioce-list-show'}}">
-        <cover-view wx:for="{{sortingList}}" catchtap="selectSorting" data-index="{{index}}" class="sorting-item" hover-class="click-once">{{item.value}}</cover-view>
-      </cover-view>
-      <cover-view class="filter-list{{!chioceFilter?' chioce-list-hide':' chioce-list-show'}}">
-        <cover-view wx:for="{{filterList}}" catchtap="selectFilter" data-index="{{index}}" class="filter-item" hover-class="click-once">{{item.value}}
-          <cover-image hidden="{{!item.selected}}" class="icon-selected" src="/images/icon-selected.png"></cover-image>
-        </cover-view>
-        <cover-view class="filter-footer">
-          <cover-view catchtap="resetFilter" plain="true" class="button-reset" type="default" size="mini" hover-class="click-once">重置</cover-view>
-          <cover-view catchtap="filterButtonClick" class="button-submit" type="primary" size="mini">确定</cover-view>
-        </cover-view>
-      </cover-view>
-    </cover-view>
-    <cover-view bindtap="hideAllChioce" class="mask" hidden="{{!chioceDistrict&&!chioceSorting&&!chioceFilter}}">
-    </cover-view>
-  </cover-view>  -->
-
-
-
-</map>
+  </map>
+  

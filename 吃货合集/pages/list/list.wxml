@@ -1,0 +1,12 @@
+
+<view class="flex-row">
+    <view wx:for="{{ itemList }}" wx:for-index="idx" wx:key="name">
+      <view class="mmc wx-panel">
+        <image class="itemimg" src="/images/loginLog.jpg"></image>
+        <text class="contenttitle">{{ item.detail_1_value }}\n 
+        {{item.detail_7_key}}：{{item.detail_7_value}}
+        </text>
+        
+      </view>
+    </view>
+</view>

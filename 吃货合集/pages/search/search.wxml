@@ -1,31 +1,32 @@
-
-<import src="/wxSearch/wxSearch.wxml"/>
+<import src="/wxSearch/wxSearch.wxml" />
 <view class="wxSearch-section">
   <view class="wxSearch-pancel">
     <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" style="" placeholder="搜索" />
 
-      <view  class="chioce-item"  >
-        <image class="icon-chioce" bindtap="navRadio" src="/images/radio.png"></image>
-      </view>
-  
-      <view bindtap="wxSearchFn" data-item="3" class="chioce-item chioce-item-last"     hover-class="click-once-opaque">
+    <view class="chioce-item">
+      <image class="icon-chioce" bindtap="navRadio" src="/images/radio.png"></image>
+    </view>
+
+    <view bindtap="wxSearchFn" data-item="3" class="chioce-item chioce-item-last" hover-class="click-once-opaque">
       搜索
     </view>
   </view>
 </view>
-<template is="wxSearch" data="{{wxSearchData}}"/>
- <!-- <template is="searchradio" data="{{recSearchData}}"/>  -->
+<template is="wxSearch" data="{{wxSearchData}}" />
+<!-- <template is="searchradio" data="{{recSearchData}}"/>  -->
 
- <view class="searchradio" style="display:{{recShow ? 'block':'none'}};">
-  <view  wx:if="{{isSpeaking}}"  class="speak-style">
-  <image class="sound-style" src="/images/voice_icon_speech_sound_1.png" ></image>
-  <image wx:if="{{j==2}}" class="sound-style" src="/images/voice_icon_speech_sound_2.png" ></image>
-  <image wx:if="{{j==3}}" class="sound-style" src="/images/voice_icon_speech_sound_3.png" ></image>
-  <image wx:if="{{j==4}}" class="sound-style" src="/images/voice_icon_speech_sound_4.png" ></image>
-  <image wx:if="{{j==5}}"class="sound-style" src="/images/voice_icon_speech_sound_5.png" ></image>
+<view class="searchradio" style="display:{{recShow ? 'block':'none'}};">
+  <view class="rightcor" bindtap='hidesearchradio'>
+    <image class="rightcor-img" src='/images/cancel-white.png'></image>
+  </view>
+  <view wx:if="{{isSpeaking}}" class="speak-style">
+    <image class="sound-style" src="/images/voice_icon_speech_sound_1.png"></image>
+    <image wx:if="{{j==2}}" class="sound-style" src="/images/voice_icon_speech_sound_2.png"></image>
+    <image wx:if="{{j==3}}" class="sound-style" src="/images/voice_icon_speech_sound_3.png"></image>
+    <image wx:if="{{j==4}}" class="sound-style" src="/images/voice_icon_speech_sound_4.png"></image>
+    <image wx:if="{{j==5}}" class="sound-style" src="/images/voice_icon_speech_sound_5.png"></image>
   </view>
   <view class="record-style">
-  <button class="btn-style" bindtouchstart="touchdown" bindtouchend="touchup">按住 录音</button>
+    <button class="btn-style" bindtouchstart="touchdown" bindtouchend="touchup">按住 录音</button>
   </view>
-  </view>
-
+</view>

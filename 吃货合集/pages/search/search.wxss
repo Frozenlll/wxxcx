@@ -109,3 +109,12 @@
     white-space:nowrap;
     overflow:hidden; 
 }
+.rightcor{
+  position: absolute;
+  top: 0;
+  right:0;
+}
+.rightcor-img{
+  width: 70rpx;
+  height:70rpx;
+}

@@ -32,3 +32,8 @@
   white-space: nowrap;
   width: 100%;
 }
+.confirmbtn{
+  display: flex;
+  /* float:right; */
+  /* magin-right:10rpx; */
+}

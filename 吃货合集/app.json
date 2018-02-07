@@ -2,17 +2,16 @@
   "pages": [
     "pages/search/search",
     "pages/covermap/covermap",
-    "pages/cat/cat",
-    "pages/index/index",
-    "pages/dialog/index",
-    "pages/picker/index",
     "pages/menu/fmenu",
     "pages/menu/smenu",
-    "pages/menu/tmenu"
+    "pages/menu/tmenu",
+    "pages/login/login",
+    "pages/list/list",
+    "pages/user/index"
   ],
   "window": {
     "navigationBarTextStyle": "#fff",
-    "navigationBarTitleText": "GIS",
+    "navigationBarTitleText": "GS信息管理",
     "navigationBarBackgroundColor": "#3399FF",
     "backgroundColor": "#fff"
   },
@@ -28,20 +27,16 @@
     "backgroundColor": "#fbfbfd",
     "position": "bottom",
     "list": [{
+        "selectedIconPath": "images/home-click.png",
         "pagePath": "pages/covermap/covermap",
-        "text": "covermap"
+        "iconPath": "images/home-unclick.png",
+        "text": "主页"
       },
       {
-        "pagePath": "pages/search/search",
-        "text": "search"
-      },
-      {
-        "pagePath": "pages/menu/fmenu",
-        "text": "menu"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "demo"
+        "pagePath": "pages/user/index",
+        "iconPath": "images/user-unclick.png",
+        "selectedIconPath": "images/user-click.png",
+        "text": "我的"
       }
     ]
   },

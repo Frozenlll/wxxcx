@@ -20,6 +20,15 @@ Page({
   wxSearchFn: function(e){
     var that = this
     WxSearch.wxSearchAddHisKey(that);
+    wx.setStorage({
+      key: 'searchText',
+      data: {
+        value: that.data.wxSearchData.value
+      },
+    })
+    wx.switchTab({
+      url: '/pages/covermap/covermap?searchtext={{wxSearchData.value}}',
+    })
   },
   wxSearchInput: function(e){
     var that = this
@@ -64,7 +73,6 @@ Page({
         //临时路径,下次进入小程序时无法正常使用
         var tempFilePath = res.tempFilePath
         console.log("tempFilePath: " + tempFilePath)
-
         /*
         wx.showToast({
           title: '录音完成',
@@ -121,7 +129,6 @@ touchup:function(e) {
           wx.hideLoading();
           _this.setData({ recShow:false})
           var str = res.data;
-          console.log('______________' + str);
           var data = JSON.parse(str);
           var voices = [];
           var voice;
@@ -158,7 +165,14 @@ touchup:function(e) {
         }
       });
     }, 1000)
-  }
+  },
+hidesearchradio:function(e){
+  console.log("___________111111111________");
+  var that = this;
+  that.setData({
+    recShow:false
+  })
+}
 
 
 })
