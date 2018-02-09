@@ -61,7 +61,8 @@ Page({
   },
   markertap:function(e){
     wx.navigateTo({
-      url: '/pages/list/list',
+      // url: '/pages/list/list',
+      url: '/pages/templist/list',
     })
   },
   regionchange:function(e){

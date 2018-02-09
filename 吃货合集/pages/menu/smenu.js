@@ -83,6 +83,11 @@ Page({
       }
     });
     console.log(that.data.globalStatusMenuData);
+  },
+  navMain: function (e) {
+    wx.switchTab({
+      url: '/pages/covermap/covermap',
+    })
   }
 })
 

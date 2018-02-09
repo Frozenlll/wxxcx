@@ -1,0 +1,27 @@
+<!--latest.wxml-->
+<view class="container">
+  <view class="topic-main">
+      <block wx:for="{{itemList}}">
+        <view class="topic-item" index="{{item.id}}" id="{{item.id}}" catchtap="redictDetail">
+            <image class="member-avatar" src="https://zhonglestudio.cn/gismgr/app/getImgBydetailId?id={{item.id}}&type=thumb" background-size="cover"></image>
+            <view class="topic-info">
+                <view class="topic-inner">
+                    <view class="topic-left">
+                        <view class="topic-title"><text>{{item.detail_1_value}}</text></view>
+                        <view >
+                            <text class="node-name">{{item.detail_2_value}}</text>
+                            <text class="member-nickname">{{item.detail_3_value}}</text>
+                        </view>
+                    </view>
+                    <image src="/images/see.png" class="see_num"></image>
+                    <view class="reply-num">{{item.detail_5_value}}</view>
+                </view>
+            </view>
+        </view>
+      </block>
+  </view>
+
+  <loading hidden="{{hidden}}">
+    加载中...
+  </loading>
+</view>

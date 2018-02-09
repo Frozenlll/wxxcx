@@ -84,5 +84,10 @@ Page({
     //     secondIndex:''
     //   }
     // });
+  },
+  navMain:function(e){
+    wx.switchTab({
+      url: '/pages/covermap/covermap',
+    })
   }
 })

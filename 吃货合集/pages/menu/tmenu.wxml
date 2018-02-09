@@ -10,3 +10,7 @@
     </view>
   </checkbox-group>
 </view>
+<view style="display:flex;">
+  <button type="default" size="mini" type="warn" bindtap="navMain"> 取消 </button> 
+  <button type="default" size="mini" type="primary" bindtap="navMain"> 确定 </button> 
+</view>
