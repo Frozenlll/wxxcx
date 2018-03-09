@@ -12,6 +12,7 @@ App({
     hasLogin: false,
     firstIndex:'',
     secondIndex:'',
+    token:'',
     menudata: [
       {
         checked: true,

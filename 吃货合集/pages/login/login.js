@@ -20,6 +20,23 @@ Page({
 
   // 登录  
   login: function () {
+    //获取用户信息,先登陆
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'https://test.com/onLogin',
+            data: {
+              code: res.code
+            }
+          })
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    });
+
     // wx.redirectTo({
     //   url: '/pages/covermap/covermap',
     // });
@@ -32,12 +49,6 @@ Page({
         duration: 2000
       })
     } else {
-      // // 这里修改成跳转的页面  
-      // wx.showToast({
-      //   title: '登录成功',
-      //   icon: 'success',
-      //   duration: 2000
-      // })
       wx.request({
         url: 'https://zhonglestudio.cn/gismgr/webctrl/login/', //仅为示例，并非真实的接口地址
         data: {
@@ -60,6 +71,7 @@ Page({
               }
             });
           } else {
+
             wx.switchTab({
               url: '/pages/covermap/covermap',
             })
