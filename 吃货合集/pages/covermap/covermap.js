@@ -45,7 +45,14 @@ Page({
     rgcData: {}
   },
   onShow: function (options) {
+    wx.showLoading(
+      {
+        title:"数据加载中",
+        mask:"true"
+      }
+    );
     var that = this;
+    //加载缓存搜索数据，可以删除
     wx.getStorage({
       key: 'searchText',
       success: function (res) {
@@ -53,6 +60,14 @@ Page({
         that.setData({
           searchtext: res.data.value
         })
+      },
+    });
+    //加载缓存中登陆信息
+    wx.getStorage({
+      key: 'logininfo',
+      success: function (res) {
+        console.log(res.data);
+        that.loadMarker(res.data.randomkey, res.data.token);
       },
     });
     
@@ -68,12 +83,48 @@ Page({
     })
   },
   markertap: function (e) {
-
     wx.navigateTo({
       url: '/pages/templist/list',
     })
   },
   regionchange: function (e) {
 
+  },
+  /**
+   * 加载地图点，根据用户角色获取全部点
+   */
+  loadMarker: function (randomKey, token){
+    wx.request({
+      url: 'https://zhonglestudio.cn/gismgr/mini/getMapInfoByuserRole', //
+      data: {
+        randomKey: randomKey,
+        token: token
+      },
+      header: {
+        "Content-Type": "application/json"
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  },
+  /**
+   * 根据角色获取菜单信息
+   */
+  loadMenu:function(){
+    wx.request({
+      url: 'https://zhonglestudio.cn/gismgr/mini/getMenuByUserRole', //
+      data: {
+        randomKey: randomKey,
+        token: token
+      },
+      header: {
+        "Content-Type": "application/json"
+      },
+      success: function (res) {
+        console.log(res)
+      }
+    })
   }
+
 })
