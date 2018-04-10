@@ -20,6 +20,10 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"current": -1,
 			"list": []
@@ -61,6 +65,24 @@
 					"id": -1,
 					"name": "templist",
 					"pathName": "pages/templist/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "user",
+					"pathName": "pages/user/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "contact",
+					"pathName": "pages/contact/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "faq",
+					"pathName": "pages/faq/index",
 					"query": ""
 				}
 			]

@@ -1,0 +1,35 @@
+
+.wx-panel {
+  padding: 20rpx;
+  background: #f0f0f0;
+  margin-bottom: 10rpx;
+  display: flex;
+  justify-content:space-between;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: column;
+}
+.mmc{
+  display: flex;
+  justify-content:space-between;
+}
+
+.icon-right {
+  height: 43rpx;
+  width: 43rpx;
+  /* padding-right: -1rpx; */
+  /* padding-right: 1rpx; */
+   /* float:right;  */
+  padding-right:-20rpx;
+
+}
+
+.menucontent {
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}

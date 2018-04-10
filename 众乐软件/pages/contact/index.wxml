@@ -1,0 +1,25 @@
+<!--answer.wxml-->
+<view class="container">
+    <view class="question" bindtap="toQuestion">
+        <text class="question-title">上海旭中市场信息咨询有限公司</text>
+    </view>
+
+    <view class="answer-content">
+        <text>公司简介 / ABOUT XU ZHONG
+        </text>
+        <image src="https://zhonglestudio.cn/gismgr/images/sy_pic1.jpg"></image>
+        <text>
+            上海旭中市场信息咨询有限公司成立于1998年，是上海市第一批市场调研公司，公司的组成人员拥有统计工作背景、 市场调查工作背景、数据处理工作经验及现场调查工作经验。已经为众多国内外客户提供了全国范围内的市场调查和信息咨询服务。公司曾获得上海庄臣市场调查最佳奖。
+        </text>
+    </view>
+
+    <view class="answer-footer flex-wrp">
+        <view class="good flex-item">
+            <view class="good-bad">
+                
+            </view>
+            <view class="good-num">电话：（021）-53078117 地址：上海市黄浦区南苏州路1305号3号门</view>
+        </view>
+    </view>
+</view>
+

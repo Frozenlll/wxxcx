@@ -1,0 +1,44 @@
+.click-once {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  opacity: 0.7 !important;
+}
+
+.click-once-opaque {
+  background-color: #f2f2f2 !important;
+}
+
+.template-load {
+  text-align: center;
+  font-size: 14px;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #f0f0f0;
+  color: #666;
+}
+
+.template-load .loading {
+  display: inline-block;
+  height: 30rpx;
+  width: 30rpx;
+  border-radius: 100%;
+  margin: 12rpx;
+  border: 4rpx solid #666;
+  border-bottom-color: transparent;
+  vertical-align: middle;
+  animation: rotate 0.75s linear infinite;
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

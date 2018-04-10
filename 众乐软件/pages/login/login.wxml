@@ -1,0 +1,35 @@
+<view class="container">  
+  <view class="login-icon">  
+    <!-- <image class="login-img" src="/images/loginLog.jpg"></image>   -->
+    <image class="login-img" src="https://zhonglestudio.cn/gismgr/images/loginLog.jpg"></image>  
+  </view>  
+  <view class="login-from">  
+  
+    <!--账号-->  
+    <view class="inputView">  
+      <image class="nameImage" src="/images/name.png"></image>  
+      <label class="loginLab">账号</label>  
+      <input class="inputText" placeholder="请输入账号" bindinput="phoneInput" />  
+    </view>  
+    <view class="line"></view>  
+  
+    <!--密码-->  
+    <view class="inputView">  
+      <image class="keyImage" src="/images/key.png"></image>  
+      <label class="loginLab">密码</label>  
+      <input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput" /> 
+    </view>  
+
+    <!-- <view class="line"></view>  
+    <view class="inputView">  
+      <image class="keyImage" src="/images/key.png"></image>  
+      <label class="loginLab">验证码</label>  
+      <input class="inputText" password="true" placeholder="请输入验证码" bindinput="passwordInput" />  
+    </view>   -->
+  
+    <!--按钮-->  
+    <view class="loginBtnView">  
+      <button class="loginBtn"  size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">登录</button>  
+    </view>  
+  </view>  
+</view>  

@@ -1,0 +1,17 @@
+
+<view class="flex-row">
+  <checkbox-group bindchange="listenCheckboxChange">
+    <view wx:for="{{ globalStatusMenuData }}" wx:for-index="idx" wx:key="name">
+      <view class="mmc wx-panel">
+        <checkbox class="menucontent" value="{{idx}}" checked='{{item.status}}' data-idx="{{idx}}">{{ item.menuName }}</checkbox>
+        <view bindtap='navSecond' data-idx="{{idx}}" class="wx-panel">
+          <image class="icon-right" src="/images/right.png"></image>
+        </view>
+      </view>
+    </view>
+  </checkbox-group>
+</view>
+<view style="display:flex;">
+  <button type="default" size="mini" type="warn" bindtap="navMain"> 取消 </button> 
+  <button type="default" size="mini" type="primary" bindtap="navMain"> 确定 </button> 
+</view>
