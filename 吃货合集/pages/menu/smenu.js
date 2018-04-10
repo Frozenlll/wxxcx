@@ -9,6 +9,7 @@ Page({
   },
   onShow: function (options) {
     var that = this;
+
     wx.getStorage({
       key: 'menuData',
       success: function (res) {
@@ -40,8 +41,6 @@ Page({
     // 父级节点选中时，子集节点全选，相反，父级节点反选时，子集节点也要反选
     var that = this;
     var arr = e.detail.value;
-    // console.log(that.data.globalStatusMenuData[that.data.firstIndex].children);
-    // console.log(that.data.firstIndex);
 
     var len = that.data.globalStatusMenuData[that.data.firstIndex].children.length;
     var tmpArr = [];
@@ -52,7 +51,7 @@ Page({
       for (var i = 0; i < len; i++) {
         // tmpArr.push(i);
         if (idx == i) {
-          removeByValue(tmpArr, i);//删除相同元素，剩下不同元素
+          app.removeByValue(tmpArr, i);//删除相同元素，剩下不同元素
         }
       }
     }
@@ -61,6 +60,7 @@ Page({
         if (idx == itemIdx) {
           that.data.globalStatusMenuData[that.data.firstIndex].children[idx].status = true;
           that.data.globalStatusMenuData[that.data.firstIndex].status = true;
+          app.generateChild(that.data.globalStatusMenuData[that.data.firstIndex].children[idx], true);
         }
       }
     }
@@ -68,13 +68,14 @@ Page({
       for (var itemIdx in that.data.globalStatusMenuData[that.data.firstIndex].children) {
         if (idx == itemIdx) {
           that.data.globalStatusMenuData[that.data.firstIndex].children[idx].status = false;
+          app.generateChild(that.data.globalStatusMenuData[that.data.firstIndex].children[idx], false);
         }
       }
     }
     that.setData({
       globalStatusMenuData: that.data.globalStatusMenuData
     })
-    console.log(that.data.gmenu);
+    // console.log(that.data.gmenu);
     wx.setStorage({
       key: 'menuData',
       data: {
@@ -89,13 +90,5 @@ Page({
       url: '/pages/covermap/covermap',
     })
   }
+  
 })
-
-function removeByValue(arr, val) {
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] == val) {
-      arr.splice(i, 1);
-      break;
-    }
-  }
-}

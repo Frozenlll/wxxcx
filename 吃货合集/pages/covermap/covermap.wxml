@@ -1,4 +1,4 @@
-<map id="map" class="map_container" longitude="{{point.longitude}}" latitude="{{point.latitude}}" markers="{{markers}}" scale="{{mapScale}}" show-location bindregionchange="regionchange" bindmarkertap="markertap"  bindcallouttap="markertap"  controls="{{controls}}" bindcontroltap="controltap" >
+<map id="map" class="map_container" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" scale="{{mapScale}}" show-location bindregionchange="regionchange" bindmarkertap="markertap"  bindcallouttap="markertap"  controls="{{controls}}" bindcontroltap="controltap" >
    <cover-view class="place_info">
    <cover-view class="selectbtn" bindtap='navMenu'>
     <cover-view class="miniselect">筛选</cover-view>

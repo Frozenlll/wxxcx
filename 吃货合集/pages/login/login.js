@@ -1,3 +1,5 @@
+//获取app变量
+var app = getApp()
 Page({
   data: {
     phone: '',
@@ -22,18 +24,18 @@ Page({
     var randomkey = randomString(32);
     var wxcode = "";
     //获取用户信息,先登陆
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          wxcode = res.code;
-          console.log("wxcode=" + wxcode);
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
-        }
-      }
-    });
+    // wx.login({
+    //   success: function (res) {
+    //     if (res.code) {
+    //       wxcode = res.code;
+    //       console.log("wxcode=" + wxcode);
+    //     } else {
+    //       console.log('获取用户登录态失败！' + res.errMsg)
+    //     }
+    //   }
+    // });
     if (wxcode){
-      randomkey = wxcode;
+      // randomkey = wxcode;
     }
     wx.setStorage({
       key: "appid",
@@ -59,7 +61,7 @@ Page({
           "Content-Type": "application/json"
         },
         success: function (res) {
-          console.log(res.data)
+          wx.removeStorageSync("menu_flag");
           if (res.data.msg && "success" != res.data.msg) {
             wx.showModal({
               title: '提示',
@@ -79,6 +81,8 @@ Page({
                 randomkey: randomkey
               }
             });
+            app.globalData.token = res.data.data.token;
+            app.globalData.randomkey = randomkey;
             //跳转
             wx.switchTab({
               url: '/pages/covermap/covermap',
@@ -93,7 +97,7 @@ Page({
 
 function randomString(len) {
   　len = len || 32;
-    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabc)({}!@#$%^&*defhijoOLl9gqVvUuI1kmnprstwxyz2345678';
+    var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijoOLl9gqVvUuI1kmnprstwxyz2345678';
   　　var maxPos = $chars.length;
   　　var pwd = '';
   　　for (var i = 0; i < len; i++) {

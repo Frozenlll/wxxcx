@@ -1,5 +1,4 @@
 
-
 <view class="flex-row">
   <checkbox-group bindchange="listenCheckboxChange">
     <view wx:for="{{ globalStatusMenuData }}" wx:for-index="idx" wx:key="name">

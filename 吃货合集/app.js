@@ -8,71 +8,55 @@ App({
   onHide: function () {
     console.log('App Hide')
   },
+  generateChild: function (obj, flag) {
+    var that = this;
+    if (obj.children) {
+      for (var idx in obj.children) {
+        obj.children[idx].status = flag;
+        if (obj.children[idx].children) {
+          that.generateChild(obj.children[idx], flag);
+        }
+      }
+    }
+  },
+  removeByValue :function (arr, val) {
+      for(var i = 0; i<arr.length; i++) {
+        if (arr[i] == val) {
+          arr.splice(i, 1);
+          break;
+        }
+      }
+  },
   globalData: {
     hasLogin: false,
     firstIndex:'',
     secondIndex:'',
     token:'',
-    menudata: [
-      {
-        checked: true,
-        children: [
-          {
-            checked: true,
-            children: [
-              {
-                checked: true,
-                children: null,
-                id: "1658",
-                leaf: true,
-                menuName: "田腾腾",
-                parent_id: "00151624118949000012005056c00001"
-              },
-              {
-                checked: true,
-                children: null,
-                id: "1657",
-                leaf: true,
-                menuName: "赵苏鸣",
-                parent_id: "00151624118949000012005056c00001"
-              }
-            ],
-            id: "00151624118949000012005056c00001",
-            leaf: false,
-            menuName: "检查人员",
-            parent_id: "00151624118947800000005056c00001"
-          },
-          {
-            checked: true,
-            children: [
-              {
-                checked: true,
-                children: null,
-                id: "1666",
-                leaf: true,
-                menuName: "杨浦区",
-                parent_id: "00151624118948500004005056c00001"
-              },
-              {
-                checked: true,
-                children: null,
-                id: "1665",
-                leaf: true,
-                menuName: "浦东新区",
-                parent_id: "00151624118948500004005056c00001"
-              }
-            ],
-            id: "00151624118948500004005056c00001",
-            leaf: false,
-            menuName: "区域",
-            parent_id: "00151624118947800000005056c00001"
-          }
-        ],
-        id: "00151624118947800000005056c00001",
-        leaf: false,
-        menuName: "2017年10月上海城管小区问题清单",
-        parent_id: null
+    randomkey:'',
+    menudata: [],
+    globalMarker:[]
+  },
+  getMapInfoByMenuDetail: function (data, randomkey,token){
+    var that = this;
+    var jsonparam = JSON.stringify(data);
+    wx.request({
+      url: 'https://zhonglestudio.cn/gismgr/mini/getMapInfoByMenuInfo', //
+      data: {
+        randomkey: that.globalData.randomkey,
+        token: that.globalData.token,
+        jsonIds: jsonparam
+      },
+      header: {
+        "Content-Type": "application/json"
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.globalData.globalMarker = res.data.data;
+        wx.setStorageSync("menu_flag", "menu")
+        wx.switchTab({
+          url: '/pages/covermap/covermap',
+        })
       }
-    ]
+    })
   }
 })
