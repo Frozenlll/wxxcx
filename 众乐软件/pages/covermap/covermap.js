@@ -42,18 +42,9 @@ Page({
   },
   onShow: function (options) {
     var that = this;
-    //加载缓存搜索数据，可以删除
-    wx.getStorage({
-      key: 'searchText',
-      success: function (res) {
-        console.log(res.data.value);
-        that.setData({
-          searchtext: res.data.value
-        })
-      },
-    });
+   
     var flag = wx.getStorageSync('menu_flag');
-    if("menu" == flag){
+    if("menu" == flag){//菜单筛选标志
       // console.log(app.globalData.globalMarker);
       that.setData({
         markers: app.globalData.globalMarker,
@@ -77,6 +68,17 @@ Page({
         },
       });
     }
+    //加载缓存搜索数据，可以删除
+    wx.getStorage({
+      key: 'searchText',
+      success: function (res) {
+        console.log(res.data.value);
+        that.setData({
+          searchtext: res.data.value
+        })
+        that.getGeocoderLatitude(res.data.value);
+      },
+    });
   },
   navSearch: function (e) {
     wx.navigateTo({
@@ -151,7 +153,8 @@ Page({
           that.setData({
             markers: res.data.data,
             longitude: res.data.data[0].longitude,
-            latitude: res.data.data[0].latitude
+            latitude: res.data.data[0].latitude,
+            mapScale:"12"
           })
         }else{
           wx.showModal({
@@ -163,7 +166,7 @@ Page({
             }
           });
         }
-        
+        that.showLoading("hide");
       }
     })
   },
@@ -236,12 +239,12 @@ Page({
   turnback:function(){
     var that = this;
     var clevel = parseInt(that.data._currentLevel);
-    console.log(clevel);
+    // console.log(clevel);
     that.showLoading("show");
     if (clevel > 1){
       that.showPreLevel();
     }else{
-      console.log(app.globalData.globalMarker.length);
+      // console.log(app.globalData.globalMarker.length);
       if (app.globalData.globalMarker.length == 0){
         that.loadMarker(that.data.randomkey, that.data.token);
       }else{
@@ -266,25 +269,38 @@ Page({
         token: that.data.token,
         cacheKey: that.data._cacheKey,
         key: that.data._key,
-        currentLevel: that.data._currentLevel
+        currentLevel: parseInt(that.data._currentLevel)
       },
       header: {
         "Content-Type": "application/json"
       },
       success: function (res) {
-        that.setData({
-          _currentLevel: parseInt(that.data._currentLevel) - 1
-        });
-        that.showLoading("hide");
         // console.log(res.data)
         if (0 == res.data.code) {
-          that.setData({
-            markers: res.data.data,
-            mapScale: parseInt(that.data.mapScale) - 1,
-            longitude: res.data.data[0].longitude,
-            latitude: res.data.data[0].latitude
-          })
+          if (res.data.data[0].preLevel == 0){//进入第一层级
+            if (app.globalData.globalMarker.length == 0) {//未经过条件筛选
+              that.loadMarker(that.data.randomkey, that.data.token);
+            } else {//经过条件筛选
+              that.setData({
+                markers: app.globalData.globalMarker,
+                longitude: app.globalData.globalMarker[0].longitude,
+                latitude: app.globalData.globalMarker[0].latitude
+              })
+              that.showLoading("hide");
+            }
+          }else{
+            that.setData({
+              markers: res.data.data,
+              // mapScale: parseInt(that.data.mapScale) - 1,
+              longitude: res.data.data[0].longitude,
+              latitude: res.data.data[0].latitude,
+              _currentLevel: res.data.data[0].preLevel,
+              _key: res.data.data[0].preKey
+            })
+            that.showLoading("hide");
+          }
         } else {
+          that.showLoading("hide");
           wx.showModal({
             title: '提示',
             content: '获取数据失败' + res.data.msg,
@@ -293,6 +309,7 @@ Page({
             }
           });
         }
+       
       }
     })
   },
@@ -325,6 +342,29 @@ Page({
           mapScale: curScale + 1,
         })
       }
+    }
+  },
+  getGeocoderLatitude: function (address){
+    var that = this;
+    if (address){
+      wx.request({
+        url: 'https://zhonglestudio.cn/gismgr/mini/getGeocoderLatitude', //
+        data: {
+          randomkey: that.data.randomkey,
+          token: that.data.token,
+          address: address
+        },
+        header: {
+          "Content-Type": "application/json"
+        },
+        success: function (res) {
+          console.log(res.data);
+          that.setData({
+            longitude: res.data.data.longitude,
+            latitude: res.data.data.latitude
+          })
+        }
+      })
     }
   }
 

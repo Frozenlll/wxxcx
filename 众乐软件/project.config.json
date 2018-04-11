@@ -35,7 +35,14 @@
 				{
 					"id": -1,
 					"name": "login",
-					"pathName": "pages/login/login"
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "faq",
+					"pathName": "pages/faq/index",
+					"query": ""
 				}
 			]
 		}

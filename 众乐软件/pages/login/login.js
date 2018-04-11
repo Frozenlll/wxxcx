@@ -3,9 +3,28 @@ var app = getApp()
 Page({
   data: {
     phone: '',
-    password: ''
-  },
+    password: '',
+    remember:true,
 
+  },
+  onShow: function (options) {
+    var that = this;
+    app.globalData.token = "";
+    app.globalData.randomkey = "";
+    wx.getStorage({
+      key: 'pwdInfo',
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          // searchtext: res.data.value
+          remember: res.data.remember,
+          phone: res.data.userName,
+          password: res.data.userPwd,
+          remember: res.data.remember
+        })
+      },
+    });
+  },
   // 获取输入账号  
   phoneInput: function (e) {
     this.setData({
@@ -62,6 +81,10 @@ Page({
         },
         success: function (res) {
           wx.removeStorageSync("menu_flag");
+          wx.removeStorage({
+            key: 'searchText',
+            success: function(res) {},
+          })
           if (res.data.msg && "success" != res.data.msg) {
             wx.showModal({
               title: '提示',
@@ -81,6 +104,22 @@ Page({
                 randomkey: randomkey
               }
             });
+            // if (that.data.remember){
+              var name = "";
+              var pwd = "";
+              if (true == that.data.remember){
+                name = that.data.phone;
+                pwd = that.data.password;
+              }
+              wx.setStorage({
+                key: 'pwdInfo',
+                data: {
+                  userName: name,
+                  userPwd: pwd,
+                  remember: that.data.remember
+                }
+              });
+            // }
             app.globalData.token = res.data.data.token;
             app.globalData.randomkey = randomkey;
             //跳转
@@ -92,6 +131,18 @@ Page({
       })
     }
 
+  },
+  listenCheckboxChange:function(e){
+    var that = this;
+    if (e.detail.value[0] && "1" == e.detail.value[0]){//选中
+      that.setData({
+        remember:true
+      })
+    }else{
+      that.setData({
+        remember: false
+      })
+    }
   }
 })  
 

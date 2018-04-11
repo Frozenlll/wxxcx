@@ -27,7 +27,7 @@ Page( {
       }, {
         icon: '../../images/loginout.png',
         text: '退出账号',
-        url: '../../pages/faq/index'
+        url: '../../pages/login/login'
       }]
   },
 

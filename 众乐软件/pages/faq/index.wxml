@@ -1,7 +1,7 @@
 <!--answer.wxml-->
 <view class="container">
     <view class="question" bindtap="toQuestion">
-        <text class="question-title">上海旭中市场信息咨询有限公司</text>
+        <text class="question-title">常见问题与解决方案</text>
     </view>
 
     <view class="answer-content">

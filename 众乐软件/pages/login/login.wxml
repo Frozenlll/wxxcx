@@ -9,7 +9,7 @@
     <view class="inputView">  
       <image class="nameImage" src="/images/name.png"></image>  
       <label class="loginLab">账号</label>  
-      <input class="inputText" placeholder="请输入账号" bindinput="phoneInput" />  
+      <input class="inputText" placeholder="请输入账号" bindinput="phoneInput" value="{{phone}}"/>  
     </view>  
     <view class="line"></view>  
   
@@ -17,9 +17,13 @@
     <view class="inputView">  
       <image class="keyImage" src="/images/key.png"></image>  
       <label class="loginLab">密码</label>  
-      <input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput" /> 
+      <input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput" value="{{password}}" /> 
     </view>  
-
+ <view class="ck">
+    <checkbox-group bindchange="listenCheckboxChange">
+      <checkbox  value="1" checked="{{remember}}"/><text>记住密码</text>
+    </checkbox-group>
+</view> 
     <!-- <view class="line"></view>  
     <view class="inputView">  
       <image class="keyImage" src="/images/key.png"></image>  
